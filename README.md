@@ -1,4 +1,4 @@
-# React page boilerplate
+# React App boilerplate
 
 React page boilerplate is the boilerplate to help me building a web page by react quickly with the help by webpack and scss.
 
