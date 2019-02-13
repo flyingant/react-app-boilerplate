@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+  <title><%= htmlWebpackPlugin.options.title %></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <% for (var css in htmlWebpackPlugin.files.css) { %>
+  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
+  <% } %>
+</head>
+<body>
+<div id="root"></div>
+<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
+<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
+<% } %>
+<script type="text/javascript">
+  function isIE() {
+    var nav = navigator.userAgent.toLowerCase();
+    return (nav.indexOf('msie') != -1) ? parseInt(nav.split('msie')[1]) : false;
+  }
+  if (isIE() && isIE() < 9) {
+    alert("您的浏览器版本过低 为了更好的体验,请升级您的浏览器! （The current version of your browser is not up to date. Please update your browser or switch browsers to continue.）");
+  }
+</script>
+</body>
+</html>
