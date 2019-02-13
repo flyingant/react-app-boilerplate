@@ -46,4 +46,4 @@ export default connect(
   }), dispatch => ({
     actions: bindActionCreators(Object.assign({}, AppActions), dispatch),
   })
-)(withIntl(HomeContainer));
+)(HomeContainer);
