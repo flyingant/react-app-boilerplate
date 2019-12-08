@@ -5,15 +5,9 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge"/>
   <title><%= htmlWebpackPlugin.options.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <% for (var css in htmlWebpackPlugin.files.css) { %>
-  <link rel="stylesheet" href="<%= htmlWebpackPlugin.files.css[css] %>">
-  <% } %>
 </head>
 <body>
 <div id="root"></div>
-<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-<script type="text/javascript" src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-<% } %>
 <script type="text/javascript">
   function isIE() {
     var nav = navigator.userAgent.toLowerCase();

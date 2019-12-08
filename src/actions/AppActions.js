@@ -1,36 +1,19 @@
-import { APP } from "../ActionsTypes";
+import { APP } from './ActionTypes';
 
-export function switchLanguage(lang) {
+export function initialize() {
   return {
-    type: APP.SWITCH_LANGUAGE,
-    lang: lang
+    type: APP.INITIALIZE,
   };
 }
 
-export function initializeApp(payload) {
+export function initializeCompleted(payload) {
   return {
-    type: APP.INITIALIZE_APP,
-    payload: payload
+    type: APP.INITIALIZE_COMPLETED,
+    payload,
   };
-}
-
-export function initializeAppCompleted(payload) {
-  return {
-    type: APP.INITIALIZE_APP_COMPLETED,
-    payload: payload
-  };
-}
-
-export function initializeAppFailed(error) {
-  return {
-    type: APP.INITIALIZE_APP_FAILED,
-    error: error
-  }
 }
 
 export default {
-  switchLanguage,
-  initializeApp,
-  initializeAppCompleted,
-  initializeAppFailed
-}
+  initialize,
+  initializeCompleted,
+};

@@ -20,6 +20,7 @@ yarn or npm
 ## Versioning
 
 1.0.0 (last update: 2019-02-11)
+2.0.0 (last update: 2019-12-08) #add the eslint and perttier support to the project
 
 ## Developers
 

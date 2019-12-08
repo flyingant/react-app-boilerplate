@@ -1,29 +1,16 @@
-import Immutable from "immutable";
-import { APP } from "../ActionsTypes";
+import Immutable from 'immutable';
+import { APP } from '../actions/ActionTypes';
 
 const DEFAULT_APP_STATE = {
-  locale: 'zh'
+  message: '',
 };
 
 export default (state, action) => {
   const currentState = state || Immutable.fromJS(DEFAULT_APP_STATE);
   switch (action.type) {
-    case APP.INITIALIZE_APP_COMPLETED:
-      console.log('Payload:', action.payload);
-      return currentState.merge({
-        
-      });
-    case APP.INITIALIZE_APP_FAILED:
-      console.log('Errors:', action.error);
-      return currentState.merge({
-        
-      });
-    case APP.SWITCH_LANGUAGE:
-      return currentState.merge({
-        locale: action.lang
-      });
+    case APP.INITIALIZE_COMPLETED:
+      return currentState.merge({ message: action.payload });
     default:
       return currentState;
   }
-  return currentState;
-}
+};

@@ -1,31 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import {Provider} from "react-redux";
-// styles// styles
-require('./stylesheet/css/main.css');
-require('./stylesheet/scss/main.scss');
+// CSS
+import './scss/style.scss';
+import './css/tailwind.css';
 
-import configuredStore from "./store.production";
-import Routers from "./Routers";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import configuredStore from './store.production';
+import AppContainer from './pages/AppContainer';
 
 const TARGET_EL = document.getElementById('root');
-
-if (!window.Intl) {
-  require('intl');
-}
 
 const Root = () => {
   return (
     <Provider store={configuredStore()}>
-      <React.Fragment>
-        <Routers/>
-        
-      </React.Fragment>
+      <>
+        <AppContainer />
+      </>
     </Provider>
-  )
-}
+  );
+};
 
-ReactDOM.render(
-  <Root/>,
-  TARGET_EL
-);
+ReactDOM.render(<Root />, TARGET_EL);

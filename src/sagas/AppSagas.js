@@ -1,21 +1,20 @@
-import {put, call, takeEvery} from "redux-saga/effects";
-import { APP } from "../ActionsTypes";
-import {initializeAppCompleted, initializeAppFailed} from "../actions/AppActions";
-import {loading, loadingCompleted} from "../actions/CommonActions";
-import {echo} from "../api/app";
+import { put, call, takeEvery } from 'redux-saga/effects';
+import { APP } from '../actions/ActionTypes';
+import { initializeCompleted } from '../actions/AppActions';
+import { busy, busyCompleted } from '../actions/UIActions';
+import { echo } from '../apis/app';
 
-function* handleInitializeApp(action) {
+function* handleInitialize() {
   try {
-    yield put(loading());
-    let result = yield call(echo);
-    yield put(initializeAppCompleted(result));
-    yield put(loadingCompleted());
+    yield put(busy());
+    const result = yield call(echo);
+    yield put(initializeCompleted(result));
+    yield put(busyCompleted());
   } catch (e) {
-    yield put(initializeAppFailed("Initialize failed!"));
-    yield put(loadingCompleted());
+    yield put(busyCompleted());
   }
 }
 
 export default function* root() {
-  yield takeEvery(APP.INITIALIZE_APP, handleInitializeApp);
+  yield takeEvery(APP.INITIALIZE, handleInitialize);
 }
