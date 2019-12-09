@@ -2,6 +2,7 @@ import Immutable from 'immutable';
 import { APP } from '../actions/ActionTypes';
 
 const DEFAULT_APP_STATE = {
+  loggedIn: false,
   message: '',
 };
 

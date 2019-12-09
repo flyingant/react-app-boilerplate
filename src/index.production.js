@@ -6,7 +6,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import configuredStore from './store.production';
-import AppContainer from './pages/AppContainer';
+import Routers from './routes';
 
 const TARGET_EL = document.getElementById('root');
 
@@ -14,7 +14,7 @@ const Root = () => {
   return (
     <Provider store={configuredStore()}>
       <>
-        <AppContainer />
+        <Routers />
       </>
     </Provider>
   );
